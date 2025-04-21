@@ -80,3 +80,25 @@ def test_edit_contact(sample_contact_data,sample_contact_book):
     
     sample_contact_book.edit_contact("Karan","email","amgmail.com","Gangwani")
     assert sample_contact_book.contacts[1].email == "am@gmail.com"
+
+def test_invalid_edit_contact(sample_contact_data,sample_contact_book):
+    """
+    Test function to edit details
+    """
+    for data in sample_contact_data:
+        sample_contact_book.add_contact(**data)
+
+    with pytest.raises(ValueError):
+        sample_contact_book.edit_contact(first_name="Karan",field="email",email="amgmail.com",last_name="Gangwani")
+    assert sample_contact_book.contacts[1].email != "amgmail.com"
+
+def test_delete_contact(sample_contact_book,sample_contact_data):
+    """
+    Test function to delete data
+    """
+    for data in sample_contact_data:
+        sample_contact_book.add_contact(**data)
+
+    sample_contact_book.delete_contact("Karan","Gangwani")
+    assert len(sample_contact_book.contacts) == 1
+
