@@ -11,24 +11,24 @@ def sample_contact_data():
     """
     return [
         {
-        "first_name": "Aleena",
-        "last_name": "Mathews",
-        "phone_number": "91 8329392930",
-        "address": "123 Street",
+        "first_name": "Karan",
+        "last_name": "gangwani",
+        "phone_number": "91 8080808080",
+        "address": "Chengalpattu",
         "city": "Cityville",
         "state": "Stateburg",
         "zip": "603203",
-        "email": "aleena@gmail.com"
+        "email": "karan@gmail.com"
         },
         {
-        "first_name": "Aleena",
-        "last_name": "Sara",
-        "phone_number": "91 8329392930",
+        "first_name": "Aaditya",
+        "last_name": "gangwani",
+        "phone_number": "91 9090909090",
         "address": "Abode",
         "city": "Chennai",
         "state": "Tamil Nade",
         "zip": "602930",
-        "email": "aleena@gmail.com"
+        "email": "aaditya@gmail.com"
         }
     ]
 
@@ -47,8 +47,8 @@ def test_add_valid_contact(sample_contact_data,sample_contact_book):
         print(contact)
 
     assert len(sample_contact_book.contacts) == 2 # checking if contact is added
-    assert sample_contact_book.contacts[0].first_name == "Aleena"
-    assert sample_contact_book.contacts[1].last_name == "Sara"
+    assert sample_contact_book.contacts[0].first_name == "Aaditya"
+    assert sample_contact_book.contacts[1].last_name == "Gangwani"
 
 def test_add_invalid_contact(sample_contact_book):
     """
@@ -78,5 +78,5 @@ def test_edit_contact(sample_contact_data,sample_contact_book):
     for data in sample_contact_data:
         sample_contact_book.add_contact(**data)
     
-    sample_contact_book.edit_contact("Aleena","email","amgmail.com","Sara")
+    sample_contact_book.edit_contact("Karan","email","amgmail.com","Gangwani")
     assert sample_contact_book.contacts[1].email == "am@gmail.com"
